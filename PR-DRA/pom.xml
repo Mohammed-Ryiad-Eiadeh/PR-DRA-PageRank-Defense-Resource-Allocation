@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>RandomWalkGraphEmbedding</artifactId>
+    <artifactId>PR-DRA</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -33,29 +33,9 @@
         </dependency>
 
         <dependency>
-            <groupId>org.knowm.xchart</groupId>
-            <artifactId>xchart</artifactId>
-            <version>3.8.4</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.jgrapht</groupId>
             <artifactId>jgrapht-core</artifactId>
             <version>1.5.2</version>
         </dependency>
-
-            <dependency>
-                <groupId>org.tribuo</groupId>
-                <artifactId>tribuo-all</artifactId>
-                <version>4.3.1</version>
-                <type>pom</type>
-            </dependency>
-
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-math3</artifactId>
-            <version>3.6.1</version>
-        </dependency>
     </dependencies>
-
 </project>
