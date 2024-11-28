@@ -16,7 +16,7 @@ import java.util.List;
 public class ResourceAllocationMain implements StoreDataAsTable {
     public static void main(String[] args) {
         // Select all test cases or the graphs as once.
-        var pathURL = "D:\\PR-DRA\\All Data\\Data Random Investments";
+        var pathURL = "DataFilePath";
         List<String> listOfAttackGraphs = new ArrayList<>();
         Path folder = Path.of(pathURL);
         if (Files.exists(folder) && Files.isDirectory(folder)) {
