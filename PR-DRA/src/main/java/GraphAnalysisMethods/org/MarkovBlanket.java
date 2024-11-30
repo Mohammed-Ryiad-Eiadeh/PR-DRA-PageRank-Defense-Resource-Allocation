@@ -102,7 +102,7 @@ public class MarkovBlanket {
      */
     private HashMap<Integer, ArrayList<Integer>> getParentsOfChildren() {
         HashMap<Integer, ArrayList<Integer>> mapOfChildrenAndTheirParents = new HashMap<>();
-        for (var v : mapOfAssetsAndTheirChildrenAndParents.entrySet()) {
+        for (Map.Entry<Integer, HashMap<String, ArrayList<Integer>>> v : mapOfAssetsAndTheirChildrenAndParents.entrySet()) {
             ArrayList<Integer> children = v.getValue().get("Children");
             for (Integer val : children) {
                 mapOfChildrenAndTheirParents.put(val, getParentsOfChildren(val));
