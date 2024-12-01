@@ -59,29 +59,7 @@ Note: all of these datasets are stored in the project directory and is called dy
 
 # Parameter Configuration of Our Experiments
 
-We begin by detailing the primary hyperparameters utilized in various components of our framework. The parameters for the GA were selected as follows: maximum iterations ($M=500$), population size which refers to a set of potential attack paths ($N=2000$), mating probability ($m_p=0.2$), mutation rate ($m_r=0.2$), and weight factor ($Wf=0.001$). The defender's security security budgets is set at $S=5$ (unless otherwise stated for specific experiments), and the maximum iterations ($PR_{iter}$) for the PR algorithm is set at 100, with epsilon ($\epsilon$) set at 0.0001. We underscore that the benefits of our suggested defense (resource allocation) strategies are applicable for any given security budget. For the behavioral defender baseline~\cite{Abdallah2020}, we have set the behavioral level ($a$) at 0.5.
-
-# Comparison of AARA-PR and baseline systems on all datasets
-
-The row "Measurements" show the relative difference of the expected cost $CR$ for all defense scenarios. The larger $CR$, the better the defense method with significance level equals 0.05 for the Friedman test.
-
-Comparison of the proposed approaches and the two baseline algorithms over the used ten datasets under Friedman test with $SL=0.05$. Our proposed methods show superior performance. While PR (JGraphT) + In-Degree Nodes has the highest mean rank, yet PRV1 + In-Degree Nodes method is ranked first more often, making it a more reliable choice for diverse real-world datasets.
-
-| Dataset / System                      | Defense in Depth~\cite{lippmann2006validating} | Behavioral Defender~\cite{Abdallah2020} | Adjacent Nodes | In Degree Nodes | MB Nodes | PR (JGraphT) + MB Nodes | PR (JGraphT) + Adjacent Nodes | PR (JGraphT) + In-Degree Nodes | PRV1 + MB Nodes | PRV1 + Adjacent Nodes | PRV1 + In-Degree Nodes |
-|---------------------------------------|-----------------------------------------------|-----------------------------------------|----------------|-----------------|----------|--------------------------|--------------------------------|--------------------------------|-----------------|------------------------|-------------------------|
-| SCADA [12]         | 22.12                                         | 22.12                                   | 29.70          | 36.53           | 24.95    | 28.51                    | 39.42                          | 44.49                          | 31.20           | 45.33                  | **49.61**               |
-| DER.1 [13]         | 14.47                                         | 14.47                                   | 32.64          | 42.62           | 33.19    | 28.60                    | 41.39                          | 55.71                          | 29.76           | 43.16                  | **57.24**               |
-| E-Commerce [14] | 14.47                                     | 14.47                                   | 42.62          | 42.62           | 42.62    | 36.58                    | **69.73**                      | **69.73**                      | 31.84           | 41.99                  | 41.99                   |
-| VOIP [14]    | 13.31                                         | 13.31                                   | 46.47          | 46.47           | 46.47    | 40.63                    | **69.73**                      | **69.73**                      | 32.91           | 33.09                  | 46.75                   |
-| HG1 [15]                  | 39.35                                         | 39.35                                   | 64.68          | 56.54           | 54.41    | 45.85                    | 54.12                          | 56.32                          | 69.73           | **77.50**              | 63.19                   |
-| HG2 [15]                  | 20.33                                         | 20.33                                   | 32.18          | **42.62**       | 28.49    | 22.50                    | 27.59                          | 38.88                          | 19.13           | 21.89                  | 31.07                   |
-| ABSNP [16]                | 1.50                                          | 1.50                                    | 2.13           | 3.93            | 2.78     | 4.84                     | 5.79                           | 5.79                           | 4.84            | **69.73**              | **69.73**               |
-| ASFS3 [16]                | 0.73                                          | 0.64                                    | 0.96           | **69.73**       | 1.42     | 1.03                     | 1.62                           | 1.85                           | 0.78            | 1.32                   | 1.38                    |
-| ASS2009 [16]              | 0.15                                          | 0.15                                    | 0.31           | 0.61            | 0.42     | 0.33                     | 0.44                           | 0.63                           | 0.64            | 0.76                   | **69.73**               |
-| AWS03 [16]                | 1.85                                          | 1.85                                    | 3.24           | **69.73**       | 3.98     | 3.70                     | 5                              | 5.36                           | 3.05            | 3.80                   | 4.10                    |
-| Rank First                            | 0                                             | 0                                       | 0              | 0               | 3        | 0                        | 0                              | 2                              | 2               | 2                      | **4**                   |
-| Sum of Rank                           | 16.5                                          | 15.5                                    | 57             | 82              | 60       | 44.5                     | 78.5                           | **92.5**                        | 48.5            | 76                     | 89                      |
-| Mean Rank                             | 1.65                                          | 1.55                                    | 5.70           | 8.20            | 6        | 4.45                     | 7.85                           | **9.25**                        | 4.85            | 7.60                   | 8.90                    |
+We begin by detailing the primary hyperparameters utilized in various components of our framework. The parameters for the GA were selected as follows: maximum iterations ($M=1000$), population size which refers to a set of potential attack paths ($N=500$), mating probability ($m_p=0.2$), mutation rate ($m_r=0.2$), and weight factor ($Wf=0.001$). The defender's security security budgets is set at $S=5$ (unless otherwise stated for specific experiments), and the maximum iterations ($PR_{iter}$) for the PR algorithm is set at 100, with epsilon ($\epsilon$) set at 0.00001. We underscore that the benefits of our suggested defense (resource allocation) strategies are applicable for any given security budget. For the behavioral defender baseline~\cite{Abdallah2020}, we have set the behavioral level ($a$) at 0.5.
 
 # Conclusion
 
@@ -96,26 +74,9 @@ This study introduces an effective defensive resource allocation strategy for un
 5) Open the project
 6) Make sure you are connected to the internet
 7) Wait while the IDEA download all the libraries that are included as dependencies in the pom XML file
-8) Go to the main file (here you will get 3 files that are executable (have "psvm" method)) so these files are as follows:
-
-   a) AdjacentNodesMain: this class is used to allocate the resourcess equally on the edges of the adjacent nodes connected to each asset.
-
-   b) BehavioralDefenderMain: this class is used to run a behavioral defender based on prospect theory for allocating the resourcess.
-
-   c) DefenseInDepthMain: this class is used to allocate the resourcess equally over all edges of the given graph.
-
-   d) InDegreeNodesMain: this class is used to allocate the resourcess equally on the edges of the in-degree nodes connected to each asset.
-
-   e) MarkovBlanketMain: this class is used to allocate the resourcess equally on the edges covered by the Markov Blanket of each asset.
-  
-   f) PageRankWithInDegreeMain: this class is used to run AARA-PR which uses PageRank to rank the assets propagating the resourcess on the in-degree edges of each asset.
-
-   g) PageRankWithMBMain: this class is used to run AARA-PR which uses PageRank to rank the assets propagating the resourcess on the edges covered by the Markov Blanket of each asset.
-
-   h) PageRankWithNeighborsMain: this class is used to run AARA-PR which uses PageRank to rank the assets propagating the resourcess on the edges of the adjacent nodes connected to each asset.
-
-10) Set up the desired hyperparameters
-11) Run the file to see the results.
+8) Go to the main file
+9) Set up the desired hyperparameters (i.e., data path for your attack graph)
+10) Run the file to see the results.
 
 # References
 
