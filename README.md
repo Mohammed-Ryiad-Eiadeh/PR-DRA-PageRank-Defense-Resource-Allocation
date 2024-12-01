@@ -28,15 +28,13 @@ This function accounts for the total asset loss that the system will lose if the
 
 # Our Contribution
 
-1) We introduce a method for security resource allocation for a defender of interdependent systems, where the assets she is protecting are interconnected. We illustrate the influence of \name on decision-making processes concerning system security, and we measure the percentage of enhancement that can be credited to our security resource allocation method.
+- We propose a *security resource allocation* method for securing interdependent systems, where assets are interconnected. We demonstrate how **\name** influences security decision-making and quantify the security improvement from our approach.
 
-2) We suggest two variants of the PageRank algorithm for improving resource allocation decisions. One variant relies on the sum of the edge weights of the outgoing nodes, while the other depends on the count of the outgoing edges. These algorithms are used under three defense strategies based on adjacent nodes, in-degree nodes, and the Markov blanket. They are designed to counter various attack models that pose threats to the security of interdependent systems.
+- We introduce a PageRank-based approach to enhance resource allocations. Our approach considers the importance (rank) of each critical asset in the interdependent system. This approach is applied within four graph-theoretic defense strategies: adjacent nodes, in-degree nodes, Markov blanket, and min-cut to address various attacks.
 
-3) We utilize an evolutionary computation algorithm, the Genetic Algorithm (GA), to identify the most likely attack paths from the attacker’s entry nodes to the critical targeted assets, ensuring a reasonable time complexity. In essence, we employ GA to determine the top-1 attack path between each potential entry node and corresponding critical asset, simulating a real-world scenario indicative of concurrent attacks. We introduce a multi-objective fitness function for this algorithm, which considers the total estimated financial loss associated with a specific attack path.
+- We apply a Genetic Algorithm (GA) to identify the most probable attack paths from entry nodes to critical assets, ensuring manageable time complexity. The GA finds the top attack path for each entry-asset pair, simulates concurrent attack scenarios, and uses a multi-objective fitness function based on the estimated financial loss and the risk of each path.
 
-4) We assess our proposed defense strategies for interdependent systems using ten attack graphs. We benchmark the performance of two resource allocation methods on these graphs, namely ‘defense in depth’ and ‘the behavioral defender'.
-
-5) Our entire framework is implemented using the Java language, adhering to the principles of object-oriented programming. The implementation incorporates reliable and well-tested libraries for executing graph-theoretic algorithms. The efficiency of our implementation is largely due to the use of several data structures.
+- We evaluate our defense strategies using ten attack graphs, comparing the performance of PR-DRA with four baselines: defense in depth, behavioral defender, min-cut edges, and risk-based defense.
 
 # Datasets We Used In Our Work
 
