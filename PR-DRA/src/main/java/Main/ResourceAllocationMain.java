@@ -66,7 +66,7 @@ public class ResourceAllocationMain implements StoreDataAsTable {
             var defenceInDepth = new AllocationApproaches(task, attackDefenceGraph, AdjMat, concurrentAttacks, assetLossVec, resources);
             defenceInDepth.callDefenseInDepth();
             headers[0] = "defenceInDepth";
-            scoresRow[0] = Double.valueOf(defenceInDepth.getExpectedCostReduction()).isNaN() ? 0 : defenceInDepth.getExpectedCostReduction();
+            scoresRow[0] = defenceInDepth.getExpectedCostReduction();
             mapAllocationMethodToRelativeCostReduction.put(headers[0], scoresRow[0]);
             mapGraphsToAllocationSortedMethods.put(graphCase, mapAllocationMethodToRelativeCostReduction);
 
@@ -74,7 +74,7 @@ public class ResourceAllocationMain implements StoreDataAsTable {
             var behavioralDefender = new AllocationApproaches(task, attackDefenceGraph, AdjMat, concurrentAttacks, assetLossVec, resources);
             behavioralDefender.callBehavioralDefender();
             headers[1] = "behavioralDefender";
-            scoresRow[1] = Double.valueOf(behavioralDefender.getExpectedCostReduction()).isNaN() ? 0 : behavioralDefender.getExpectedCostReduction();
+            scoresRow[1] = behavioralDefender.getExpectedCostReduction();
             mapAllocationMethodToRelativeCostReduction.put(headers[1], scoresRow[1]);
             mapGraphsToAllocationSortedMethods.put(graphCase, mapAllocationMethodToRelativeCostReduction);
 
@@ -82,7 +82,7 @@ public class ResourceAllocationMain implements StoreDataAsTable {
             var minCut = new AllocationApproaches(task, attackDefenceGraph, AdjMat, concurrentAttacks, assetLossVec, resources);
             minCut.callMinCut();
             headers[2] = "minCut";
-            scoresRow[2] = Double.valueOf(minCut.getExpectedCostReduction()).isNaN() ? 0 : minCut.getExpectedCostReduction();
+            scoresRow[2] = minCut.getExpectedCostReduction();
             mapAllocationMethodToRelativeCostReduction.put(headers[2], scoresRow[2]);
             mapGraphsToAllocationSortedMethods.put(graphCase, mapAllocationMethodToRelativeCostReduction);
 
@@ -90,7 +90,7 @@ public class ResourceAllocationMain implements StoreDataAsTable {
             var riskBasedDefence = new AllocationApproaches(task, attackDefenceGraph, AdjMat, concurrentAttacks, assetLossVec, resources);
             riskBasedDefence.callRiskBasedDefense();
             headers[3] = "riskBasedDefence";
-            scoresRow[3] = Double.valueOf(riskBasedDefence.getExpectedCostReduction()).isNaN() ? 0 : riskBasedDefence.getExpectedCostReduction();
+            scoresRow[3] = riskBasedDefence.getExpectedCostReduction();
             mapAllocationMethodToRelativeCostReduction.put(headers[3], scoresRow[3]);
             mapGraphsToAllocationSortedMethods.put(graphCase, mapAllocationMethodToRelativeCostReduction);
 
@@ -98,7 +98,7 @@ public class ResourceAllocationMain implements StoreDataAsTable {
             var AdjacentNodesDefence = new AllocationApproaches(task, attackDefenceGraph, AdjMat, concurrentAttacks, assetLossVec, resources);
             AdjacentNodesDefence.callAdjacentNodes();
             headers[4] = "adjacentNodesDefence";
-            scoresRow[4] = Double.valueOf(AdjacentNodesDefence.getExpectedCostReduction()).isNaN() ? 0 : AdjacentNodesDefence.getExpectedCostReduction();
+            scoresRow[4] = AdjacentNodesDefence.getExpectedCostReduction();
             mapAllocationMethodToRelativeCostReduction.put(headers[4], scoresRow[4]);
             mapGraphsToAllocationSortedMethods.put(graphCase, mapAllocationMethodToRelativeCostReduction);
 
@@ -106,7 +106,7 @@ public class ResourceAllocationMain implements StoreDataAsTable {
             var InDegreeNodesDefence = new AllocationApproaches(task, attackDefenceGraph, AdjMat, concurrentAttacks, assetLossVec, resources);
             InDegreeNodesDefence.callInDegreeNodes();
             headers[5] = "inDegreeNodesDefence";
-            scoresRow[5] = Double.valueOf(InDegreeNodesDefence.getExpectedCostReduction()).isNaN() ? 0 : InDegreeNodesDefence.getExpectedCostReduction();
+            scoresRow[5] = InDegreeNodesDefence.getExpectedCostReduction();
             mapAllocationMethodToRelativeCostReduction.put(headers[5], scoresRow[5]);
             mapGraphsToAllocationSortedMethods.put(graphCase, mapAllocationMethodToRelativeCostReduction);
 
@@ -114,7 +114,7 @@ public class ResourceAllocationMain implements StoreDataAsTable {
             var MarkovBlanketDefence = new AllocationApproaches(task, attackDefenceGraph, AdjMat, concurrentAttacks, assetLossVec, resources);
             MarkovBlanketDefence.callMarkovBlanket();
             headers[6] = "MarkovBlanketDefence";
-            scoresRow[6] = Double.valueOf(MarkovBlanketDefence.getExpectedCostReduction()).isNaN() ? 0 : MarkovBlanketDefence.getExpectedCostReduction();
+            scoresRow[6] = MarkovBlanketDefence.getExpectedCostReduction();
             mapAllocationMethodToRelativeCostReduction.put(headers[6], scoresRow[6]);
             mapGraphsToAllocationSortedMethods.put(graphCase, mapAllocationMethodToRelativeCostReduction);
 
@@ -122,7 +122,7 @@ public class ResourceAllocationMain implements StoreDataAsTable {
             var PRJGraphTCentralityWithMarkovBlanket = new AllocationApproaches(task, attackDefenceGraph, AdjMat, concurrentAttacks, assetLossVec, resources);
             PRJGraphTCentralityWithMarkovBlanket.callCentrality(AllocationApproaches.LinkageType.Markov_Blanket, AllocationApproaches.PR_Version.PR_JGraphT);
             headers[7] = "PRJGraphTCentralityWithMarkovBlanket";
-            scoresRow[7] = Double.valueOf(PRJGraphTCentralityWithMarkovBlanket.getExpectedCostReduction()).isNaN() ? 0 : PRJGraphTCentralityWithMarkovBlanket.getExpectedCostReduction();
+            scoresRow[7] = PRJGraphTCentralityWithMarkovBlanket.getExpectedCostReduction();
             mapAllocationMethodToRelativeCostReduction.put(headers[7], scoresRow[7]);
             mapGraphsToAllocationSortedMethods.put(graphCase, mapAllocationMethodToRelativeCostReduction);
 
@@ -130,7 +130,7 @@ public class ResourceAllocationMain implements StoreDataAsTable {
             var PRJGraphTCentralityWithAdjacentNodes = new AllocationApproaches(task, attackDefenceGraph, AdjMat, concurrentAttacks, assetLossVec, resources);
             PRJGraphTCentralityWithAdjacentNodes.callCentrality(AllocationApproaches.LinkageType.Adjacent_Nodes, AllocationApproaches.PR_Version.PR_JGraphT);
             headers[8] = "PRJGraphTCentralityWithAdjacentNodes";
-            scoresRow[8] = Double.valueOf(PRJGraphTCentralityWithAdjacentNodes.getExpectedCostReduction()).isNaN() ? 0 : PRJGraphTCentralityWithAdjacentNodes.getExpectedCostReduction();
+            scoresRow[8] = PRJGraphTCentralityWithAdjacentNodes.getExpectedCostReduction();
             mapAllocationMethodToRelativeCostReduction.put(headers[8], scoresRow[8]);
             mapGraphsToAllocationSortedMethods.put(graphCase, mapAllocationMethodToRelativeCostReduction);
 
@@ -138,7 +138,7 @@ public class ResourceAllocationMain implements StoreDataAsTable {
             var PRJGraphTCentralityWithInDegreeNodes = new AllocationApproaches(task, attackDefenceGraph, AdjMat, concurrentAttacks, assetLossVec, resources);
             PRJGraphTCentralityWithInDegreeNodes.callCentrality(AllocationApproaches.LinkageType.In_Degree_Nodes, AllocationApproaches.PR_Version.PR_JGraphT);
             headers[9] = "PRJGraphTCentralityWithInDegreeNodes";
-            scoresRow[9] = Double.valueOf(PRJGraphTCentralityWithInDegreeNodes.getExpectedCostReduction()).isNaN() ? 0 : PRJGraphTCentralityWithInDegreeNodes.getExpectedCostReduction();
+            scoresRow[9] = PRJGraphTCentralityWithInDegreeNodes.getExpectedCostReduction();
             mapAllocationMethodToRelativeCostReduction.put(headers[9], scoresRow[9]);
             mapGraphsToAllocationSortedMethods.put(graphCase, mapAllocationMethodToRelativeCostReduction);
 
@@ -147,7 +147,7 @@ public class ResourceAllocationMain implements StoreDataAsTable {
             PRJGraphTCentralityWithMinCutEdges.callCentrality(AllocationApproaches.LinkageType.Min_Cut_Edges, AllocationApproaches.PR_Version.PR_JGraphT);
             // System.out.println("Relative cost reduction after the PR centrality + Markov Blanket allocation is: " + PRCentralityWithMarkovBlanket.getExpectedCostReduction());
             headers[14] = "PRJGraphTCentralityWithMinCutEdges";
-            scoresRow[14] = Double.valueOf(PRJGraphTCentralityWithMinCutEdges.getExpectedCostReduction()).isNaN() ? 0 : PRJGraphTCentralityWithMinCutEdges.getExpectedCostReduction();
+            scoresRow[14] = PRJGraphTCentralityWithMinCutEdges.getExpectedCostReduction();
             mapAllocationMethodToRelativeCostReduction.put(headers[14], scoresRow[14]);
             mapGraphsToAllocationSortedMethods.put(graphCase, mapAllocationMethodToRelativeCostReduction);*/
 
@@ -155,7 +155,7 @@ public class ResourceAllocationMain implements StoreDataAsTable {
             var PRCentralityWithMarkovBlanket = new AllocationApproaches(task, attackDefenceGraph, AdjMat, concurrentAttacks, assetLossVec, resources);
             PRCentralityWithMarkovBlanket.callCentrality(AllocationApproaches.LinkageType.Markov_Blanket, AllocationApproaches.PR_Version.PR_Ours);
             headers[10] = "PRCentralityWithMarkovBlanket";
-            scoresRow[10] = Double.valueOf(PRCentralityWithMarkovBlanket.getExpectedCostReduction()).isNaN() ? 0 : PRCentralityWithMarkovBlanket.getExpectedCostReduction();
+            scoresRow[10] = PRCentralityWithMarkovBlanket.getExpectedCostReduction();
             mapAllocationMethodToRelativeCostReduction.put(headers[10], scoresRow[10]);
             mapGraphsToAllocationSortedMethods.put(graphCase, mapAllocationMethodToRelativeCostReduction);
 
@@ -163,7 +163,7 @@ public class ResourceAllocationMain implements StoreDataAsTable {
             var PRCentralityWithAdjacentNodes = new AllocationApproaches(task, attackDefenceGraph, AdjMat, concurrentAttacks, assetLossVec, resources);
             PRCentralityWithAdjacentNodes.callCentrality(AllocationApproaches.LinkageType.Adjacent_Nodes, AllocationApproaches.PR_Version.PR_Ours);
             headers[11] = "PRCentralityWithAdjacentNodes";
-            scoresRow[11] = Double.valueOf(PRCentralityWithAdjacentNodes.getExpectedCostReduction()).isNaN() ? 0 : PRCentralityWithAdjacentNodes.getExpectedCostReduction();
+            scoresRow[11] = PRCentralityWithAdjacentNodes.getExpectedCostReduction();
             mapAllocationMethodToRelativeCostReduction.put(headers[11], scoresRow[11]);
             mapGraphsToAllocationSortedMethods.put(graphCase, mapAllocationMethodToRelativeCostReduction);
 
@@ -171,7 +171,7 @@ public class ResourceAllocationMain implements StoreDataAsTable {
             var PRCentralityWithInDegreeNodes = new AllocationApproaches(task, attackDefenceGraph, AdjMat, concurrentAttacks, assetLossVec, resources);
             PRCentralityWithInDegreeNodes.callCentrality(AllocationApproaches.LinkageType.In_Degree_Nodes, AllocationApproaches.PR_Version.PR_Ours);
             headers[12] = "PRCentralityWithInDegreeNodes";
-            scoresRow[12] = Double.valueOf(PRCentralityWithInDegreeNodes.getExpectedCostReduction()).isNaN() ? 0 : PRCentralityWithInDegreeNodes.getExpectedCostReduction();
+            scoresRow[12] = PRCentralityWithInDegreeNodes.getExpectedCostReduction();
             mapAllocationMethodToRelativeCostReduction.put(headers[12], scoresRow[12]);
             mapGraphsToAllocationSortedMethods.put(graphCase, mapAllocationMethodToRelativeCostReduction);
 
@@ -179,7 +179,7 @@ public class ResourceAllocationMain implements StoreDataAsTable {
             var PRCentralityWithMinCutEdges = new AllocationApproaches(task, attackDefenceGraph, AdjMat, concurrentAttacks, assetLossVec, resources);
             PRCentralityWithMinCutEdges.callCentrality(AllocationApproaches.LinkageType.Min_Cut_Edges, AllocationApproaches.PR_Version.PR_Ours);
             headers[13] = "PRCentralityWithMinCutEdges";
-            scoresRow[13] = Double.valueOf(PRCentralityWithMinCutEdges.getExpectedCostReduction()).isNaN() ? 0 : PRCentralityWithMinCutEdges.getExpectedCostReduction();
+            scoresRow[13] = PRCentralityWithMinCutEdges.getExpectedCostReduction();
             mapAllocationMethodToRelativeCostReduction.put(headers[13], scoresRow[13]);
             mapGraphsToAllocationSortedMethods.put(graphCase, mapAllocationMethodToRelativeCostReduction);
         }
